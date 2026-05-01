@@ -84,7 +84,7 @@ convolens/
 ## Tech Stack
 
 - **Streamlit** — UI framework
-- **VADER** — Sentiment analysis
+- **VADER**Valence Aware Dictionary and sEntiment Reasoner — Sentiment analysis
 - **NLTK** — Tokenization, lemmatization
 - **scikit-learn** — TF-IDF, cosine similarity
 - **Plotly** — Interactive charts
