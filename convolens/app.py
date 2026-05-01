@@ -103,8 +103,7 @@ Alice (10:30): I'll call later
 
     if st.button("Analyze conversation", type="primary"):
         df = parse_manual_input(manual_text)
-    if st.button("Analyze conversation", type="primary"):
-        df = parse_manual_input(manual_text)
+
 
 elif input_mode == "Load sample chat":
     sample_choice = st.selectbox("Choose sample:", ["Tense relationship chat", "Healthy friendly chat"])
