@@ -71,9 +71,38 @@ if input_mode == "Upload WhatsApp .txt":
             st.error("Could not parse chat. Ensure it is a standard WhatsApp export format.")
 
 elif input_mode == "Manual text input":
-    st.markdown("**Format:** Each line should be `PersonName: message text`")
-    sample = "Alice: Hey are you coming tonight?\nBob: whatever, i don't care\nAlice: You always say that\nBob: Stop blaming me for everything\nAlice: I'm just asking\nBob: Fine. Sure. I'll come if you want me to"
-    manual_text = st.text_area("Paste conversation:", value=sample, height=200)
+
+    sample = """Alice: Hey are you coming tonight?
+Bob: whatever, i don't care
+Alice: You always say that
+Bob: Stop blaming me for everything"""
+
+    st.markdown("""
+    **Accepted formats:**
+    - `Alice: message`
+    - `[Alice] message`
+    - `Alice - message`
+    - `Alice (10:30): message`
+    """)
+
+    manual_text = st.text_area(
+        "Paste conversation:",
+        value=sample,
+        height=200,
+        placeholder="""Examples:
+
+Alice: Hey are you coming tonight?
+Bob: whatever, i don't care
+
+[Alice] Are you serious?
+Bob - Stop blaming me
+
+Alice (10:30): I'll call later
+"""
+    )
+
+    if st.button("Analyze conversation", type="primary"):
+        df = parse_manual_input(manual_text)
     if st.button("Analyze conversation", type="primary"):
         df = parse_manual_input(manual_text)
 
